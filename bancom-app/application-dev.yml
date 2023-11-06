@@ -4,11 +4,12 @@ logging:
     pe.bancom: TRACE
     org.springframework: INFO
     com.microsoft: ERROR
+    springfox.documentation: TRACE
 
 server:
   port: 8080
   servlet:
-    context-path: /bancom/support/v1.0
+    context-path: /support/v1.0
 
 spring:
   application:
@@ -24,10 +25,17 @@ spring:
     baseline-on-migrate: true
   jpa:
     show-sql: true
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
     open-in-view: false
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
 pe.bancom:
+  api:
+    path: bancom
   database:
     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/bancom?allowPublicKeyRetrieval=true&useSSL=false
     username: ${MYSQL_USER}
