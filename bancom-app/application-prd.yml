@@ -1,9 +1,10 @@
 logging:
   level:
     root: INFO
-    pe.bancom: TRACE
+    pe.bancom: INFO
     org.springframework: INFO
     com.microsoft: ERROR
+    springfox.documentation: INFO
 
 server:
   port: 8080
@@ -18,18 +19,18 @@ spring:
     locale: es_PE
   flyway:
     enabled: true
-    url: jdbc:mysql://localhost:3306/bancom
-    user: root
-    password: "@P4ssw0rD"
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/bancom
+    user: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     baseline-on-migrate: true
   jpa:
     show-sql: true
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
     open-in-view: false
 
 pe.bancom:
   database:
-    url: jdbc:mysql://localhost:3306/bancom?allowPublicKeyRetrieval=true&useSSL=false
-    username: root
-    password: "@P4ssw0rD"
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/bancom?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driverClassName: com.mysql.cj.jdbc.Driver
