@@ -56,7 +56,7 @@ public class PostServiceImpl implements PostService {
   @Override
   public ResponseMessage updatePost(PostRequest request, CommonsHeaders header) {
     Post postById = repository.getById(request.getId());
-    if(header.getUserCode().equals(postById.getUser().getId())){
+    if (header.getUserCode().equals(String.valueOf(postById.getUser().getId()))) {
         return ResponseMessage.builder()
             .code("BN0004")
             .message("User no authorization for update it post")
