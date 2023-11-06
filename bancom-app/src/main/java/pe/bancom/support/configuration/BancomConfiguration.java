@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @EnableConfigurationProperties({MicroserviceConfiguration.class, DataBaseProperties.class})
-@Import({OpenApiConfiguration.class})
+@Import({OpenApiConfiguration.class, SecurityConfiguration.class})
 public class BancomConfiguration {
   @Bean
   public DataSource dataSource(DataBaseProperties configuration) {
